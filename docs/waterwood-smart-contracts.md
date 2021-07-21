@@ -22,11 +22,11 @@ All extensions on the base tokens are done through the new ERC-777 "Operators". 
 
 This means that we can write additional smart contracts to extend base functionality of Waterwood (WATER) token. Our first cross-smart contract functionality written in this manner is WOOD, our second, mintable token.
 
-Mainnet Deployed Waterwood (WATER) Token can be found here: https://etherscan.io/address/0xf80d589b3dbe130c270a69f1a69d050f268786df#code
+Mainnet Deployed Waterwood (WATER) Token can be found here: https://bscscan.com/address/0x3c73799db546e98f23f738ea0871b6ced71d873a#code
 
 Compilation Parameters: Solidity v0.6.9. No Optimizations
 
-Full Waterwood (WATER) Token source code can be found here: [contracts/WATER.sol](https://github.com/Waterwood-network/witepaper/tree/master/contracts/WATER.sol)
+Full Waterwood (WATER) Token source code can be found here: [contracts/WATER.sol](../contracts/WATER.sol)
 
 # WOOD Token
 
@@ -34,11 +34,11 @@ Let's go over the WOOD smart contract in detail skipping the entire OpenZeppelin
 
 The WOOD smart contract drives the business logic of Waterwood, it's important that our business logic is open for the rest of the world to see. Let's jump right into the WOOD smart contract code. We'll go through code in logical blocks.
 
-Mainnet Deployed WOOD Token can be found here: https://bscscan.com/token/0x5dfd107dab2a10b5034601fe26b71b3b4d20e64c
+Mainnet Deployed WOOD Token can be found here: https://bscscan.com/address/0x5dfd107dab2a10b5034601fe26b71b3b4d20e64c#code
 
 Compilation Parameters: Solidity v0.6.9. Optimizations Enabled.
 
-Full WOOD Token source code can be found here: [contracts/WOOD.sol](https://github.com/Waterwood-network/witepaper/tree/master/contracts/WOOD.sol)
+Full WOOD Token source code can be found here: [contracts/WOOD.sol](../contracts/WOOD.sol)
 
 ## Libraries & Interfaces
 
