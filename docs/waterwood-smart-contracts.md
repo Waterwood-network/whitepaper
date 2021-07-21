@@ -1,6 +1,6 @@
 # Our Smart Contracts - In-Depth Breakdown
 
-## Ethereum ERC-777 - The backbone of our tokens
+## BEP-20 and ERC-777 - The backbone of our tokens
 
 Our smart Contracts are ERC-777, ERC-20  and BEP-20 Compatble. For Techincal Details on ERC-777 Standard: [https://eips.ethereum.org/EIPS/eip-777](https://eips.ethereum.org/EIPS/eip-777)
 
@@ -18,7 +18,7 @@ OpenZeppelin code is at the heart of our tokens and we follow their security pra
 
 For the base Waterwood (WATER) token we've kept it as simple and basic as possible. This token is a standard ERC-777 implementation and was deployed on BSC mainnet with fixed supply of 1,386,000,000 WATER.
 
-All extensions on the base tokens are done through the new ERC-777 "Operators". This feature allows other ethereum addresses to operate on behalf of your account. Instead of another address, we've used this functionality to grant another smart contract operator role. 
+All extensions on the base tokens are done through the new ERC-777 "Operators". This feature allows other bsc addresses to operate on behalf of your account. Instead of another address, we've used this functionality to grant another smart contract operator role. 
 
 This means that we can write additional smart contracts to extend base functionality of Waterwood (WATER) token. Our first cross-smart contract functionality written in this manner is WOOD, our second, mintable token.
 
@@ -263,7 +263,7 @@ Another impossible case is also covered by this check. If WOOD token can only op
 
 New to Solidity 0.6.5, let's take a look at our immutable state variables. We'll be assuming our usual 1 block = 3 seconds for all calculations. This makes our math easy and avoids [Timestamp Dependence attacks](https://consensys.github.io/smart-contract-best-practices/known_attacks/#timestamp-dependence).
 
-If Ethereum block times change significantly in the future then the entire WOOD smart contract follows suite and the rewards might be accelerated or slowed down accordingly. During our Bsc testnet beta phase we've experienced 1 minute+ block times.
+If Bsc block times change significantly in the future then the entire WOOD smart contract follows suite and the rewards might be accelerated or slowed down accordingly. During our Bsc testnet beta phase we've experienced 1 minute+ block times.
 
 ```Solidity
 /**
@@ -287,7 +287,7 @@ Used in time reward multiplier math as the maximum reward point. This is set to 
  */
 uint256 immutable private _failsafeTargetBlock;     
 ```
-WOOD Smart Contracts features a failsafe mode. We only let you lock-in 100 WATER for 3 weeks at launch. This is done in accordance with the [Ethereum Fail-Safe Security Best Practice](https://solidity.readthedocs.io/en/v0.6.9/security-considerations.html#include-a-fail-safe-mode).
+WOOD Smart Contracts features a failsafe mode. We only let you lock-in 100 WATER for 3 weeks at launch. This is done in accordance with the [Fail-Safe Security Best Practice](https://solidity.readthedocs.io/en/v0.6.9/security-considerations.html#include-a-fail-safe-mode).
 
 ## Constructor
 
@@ -488,7 +488,7 @@ if (block.number < _failsafeTargetBlock) {
     require(amount <= _failsafeMaxAmount, "You can only lock-in up to 100 WATER during failsafe.");
 }
 ```
-During our fail-safe mode (Based on [Ethereum Fail-Safe Security Best Practice](https://solidity.readthedocs.io/en/v0.6.9/security-considerations.html#include-a-fail-safe-mode)) we don't want addresses to lock-in more than `_failsafeMaxAmount` which is 100 WATER (10^18) at launch. This allows us to pull smart contract for 3 weeks in case of an issue.
+During our fail-safe mode (Based on [Fail-Safe Security Best Practice](https://solidity.readthedocs.io/en/v0.6.9/security-considerations.html#include-a-fail-safe-mode)) we don't want addresses to lock-in more than `_failsafeMaxAmount` which is 100 WATER (10^18) at launch. This allows us to pull smart contract for 3 weeks in case of an issue.
 
 ```Solidity
 AddressLock storage senderAddressLock = addressLocks[_msgSender()]; // Shortcut accessor
@@ -999,11 +999,11 @@ These functions fetch a number of data points and consolidate them as multiple f
 
 These functions are not used anywhere in the contract and are only there to provide a quick form of data aggregation. We do not use these functions in the Waterwood Framework.
 
-Additionally `ABIEncoderV2` was still in experimental mode so we did not use it and instead simply return multiple values. Due to the limited number of memory variables in Ethereum this data aggregation had to be split into two seprate functions.
+Additionally `ABIEncoderV2` was still in experimental mode so we did not use it and instead simply return multiple values. Due to the limited number of memory variables in Bsc this data aggregation had to be split into two seprate functions.
 
 ## Additional Security Considerations (ConsenSys)
 
-Here we'll go through a quick checklist of Best Security Practices, known attacks and various steps we took to ensure the contract is secure. Be sure to follow along: [Ethereum Smart Contract Security Best Practices
+Here we'll go through a quick checklist of Best Security Practices, known attacks and various steps we took to ensure the contract is secure. Be sure to follow along: [Smart Contract Security Best Practices
 ](https://consensys.github.io/smart-contract-best-practices/)
 
 ### General Philosophy
@@ -1115,7 +1115,7 @@ To keep the time math formulas basic we've based all of our math around the fact
 
 Both WATER and WOOD tokens implement the OpenZeppelin ERC20 compatible `function approve(address _spender, uint256 _value) public returns (bool success)`
 
-As noted in Ethereum EIP-20: <https://eips.ethereum.org/EIPS/eip-20> 
+As noted in EIP-20: <https://eips.ethereum.org/EIPS/eip-20> 
 
 NOTE: To prevent attack vectors like the one [described here](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/) and discussed [here](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/), clients SHOULD make sure to create user interfaces in such a way that they set the allowance first to 0 before setting it to another value for the same spender. **THOUGH The contract itself shouldn’t enforce it, to allow backwards compatibility with contracts deployed before**
 
