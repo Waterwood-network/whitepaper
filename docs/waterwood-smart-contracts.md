@@ -2,7 +2,7 @@
 
 ## BEP-20 and ERC-777 - The backbone of our tokens
 
-Our smart Contracts are ERC-777, ERC-20  and BEP-20 Compatble. For Techincal Details on ERC-777 Standard: [https://eips.ethereum.org/EIPS/eip-777](https://eips.ethereum.org/EIPS/eip-777)
+Our smart Contracts are ERC-777, ERC-20  and BEP-20 Compatible. For Techincal Details on ERC-777 Standard: [https://eips.ethereum.org/EIPS/eip-777](https://eips.ethereum.org/EIPS/eip-777)
 
 We won't be going through all of the fantastic ERC-777 features nor the ERC-20 and BEP-20 features on this page and instead focus purely on our smart contract implementation.
 
