@@ -21,8 +21,8 @@ Be sure to check the whitepaper for frequent updates as there is a lot to discus
 1. [SlowMist - WATER](audits/SlowMist%20-%20Smart%20Contract%20Security%20Audit%20Report%20-%20DamToken.pdf)
 2. [SlowMist - WOOD](audits/SlowMist%20-%20Smart%20Contract%20Security%20Audit%20Report%20-%20FluxToken.pdf)
 
-## Professional - Quality & Safety
+<!-- ## Professional - Quality & Safety
 
-1. [DeFi Safety - 81% Score](https://defisafety.com/2020/12/11/datamine/)
+1. [DeFi Safety - 81% Score](https://defisafety.com/2020/12/11/datamine/) -->
 
 ... Work in progress. Please check back for more sections in the future.
